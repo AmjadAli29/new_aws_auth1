@@ -12,26 +12,25 @@ const amplifyconfig = ''' {
                 "CredentialsProvider": {
                     "CognitoIdentity": {
                         "Default": {
-                            "PoolId": "ap-southeast-1:e96173f4-b458-4f71-9c70-5762b2d64565",
+                            "PoolId": "ap-southeast-1:bafcbfff-8e6a-4162-861f-cd6ce0ae4963",
                             "Region": "ap-southeast-1"
                         }
                     }
                 },
                 "CognitoUserPool": {
                     "Default": {
-                        "PoolId": "ap-southeast-1_ZdMZ91dIe",
-                        "AppClientId": "6rcbhf3v3n20497s0m6itm47co",
-                        "AppClientSecret": "1jgnkbm5a52ui7nl9i3h9tlmpc099hu68m205cmkpjcba6g1gv9i",
+                        "PoolId": "ap-southeast-1_051PXtSsk",
+                        "AppClientId": "3dcdav2qk2kl5gvjsotccu8n3c",
                         "Region": "ap-southeast-1"
                     }
                 },
                 "Auth": {
                     "Default": {
                         "OAuth": {
-                            "AppClientId": "6rcbhf3v3n20497s0m6itm47co",
-                            "AppClientSecret": "1jgnkbm5a52ui7nl9i3h9tlmpc099hu68m205cmkpjcba6g1gv9i",
-                            "SignInRedirectURI": "https://localhost/",
-                            "SignOutRedirectURI": "https://localhost/",
+                            "WebDomain": "newauth18b842ebf-8b842ebf-dev.auth.ap-southeast-1.amazoncognito.com",
+                            "AppClientId": "3dcdav2qk2kl5gvjsotccu8n3c",
+                            "SignInRedirectURI": "http://localhost/",
+                            "SignOutRedirectURI": "http://localhost/",
                             "Scopes": [
                                 "phone",
                                 "email",

@@ -3,9 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
-// import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-// import 'package:amplify_flutter/amplify.dart';
-// import 'package:amplify_analytics_pinpoint/amplify_analytics_pinpoint.dart';
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_flutter/amplify.dart';
+import 'package:amplify_analytics_pinpoint/amplify_analytics_pinpoint.dart';
+
+// Generated in previous step
+import 'amplifyconfiguration.dart';
 
 class homeScreen extends StatefulWidget {
   final FirebaseUser user;
@@ -16,7 +19,7 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-  static const platform = const MethodChannel('flutter.native/helper'); 
+  static const platform = const MethodChannel('flutter.native/helper');
   var id;
   
 
@@ -24,14 +27,17 @@ class _homeScreenState extends State<homeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
     widget.user.getIdToken().then((token) {
       setState(() {
         id = token.token;
-        // print(token);
+         print(id);
         }
         );
     });
   }
+
+
 
       // getid() {
       //   widget.user.getIdToken().then((token) {
@@ -46,25 +52,29 @@ class _homeScreenState extends State<homeScreen> {
       void printy() async {
 
         String value='';
-        
+
         try {
-          
+
           //  value = await platform.invokeMethod("helloFromNativeCode");
           value = await platform.invokeMethod("helloFromNativeCode",{"id":id});
-          
+
         } catch (e) {
           print(e);
         }
         print("token id from javanative:"+value);
       }
-
-      // sendOpenId(String idtoken) {
-      //   // Amplify.addPlugin(AmplifyAuthCognito(Amplify.Auth.signInWithWebUI(provider: _tokenid)));
-      //   // var client = Amplify.Auth.addPlugin("awscloudformation").
-      //   // var mobileClient = Amplify.Auth.signInWithWebUI(provider: _tokenid);
-
-      //   var client = Amplify.Auth.signInWithWebUI(provider: _tokenid);
+      // sendOpenId(){
+      //   Amplify.Auth.signUp(username: username, password: password)
       // }
+
+      sendOpenId(String idtoken) {
+
+        /*Amplify.addPlugin(AmplifyAuthCognito(Amplify.Auth.signInWithWebUI(provider: _tokenid)));
+        var client = Amplify.Auth.addPlugin("awscloudformation").
+        var mobileClient = Amplify.Auth.signInWithWebUI(provider: _tokenid);
+
+        var client = Amplify.Auth.signInWithWebUI(provider: _tokenid);*/
+      }
 
       @override
       Widget build(BuildContext context) {
@@ -83,14 +93,14 @@ class _homeScreenState extends State<homeScreen> {
                   height: 16,
                 ),
                 Text(
-                "some..."
+                "$id"
                 ),
                 SizedBox(
                   height: 16,
                 ),
                 RaisedButton(onPressed: () {
                   //getid;
-                  printy();
+                   printy();
                 }, child: Text("ok"))
               ],
             ),

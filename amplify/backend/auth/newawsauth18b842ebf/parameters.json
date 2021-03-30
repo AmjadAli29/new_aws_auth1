@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "android4acc1ae8_identitypool_4acc1ae8",
+    "identityPoolName": "newawsauth18b842ebf_identitypool_8b842ebf",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "androi4acc1ae8",
-    "userPoolName": "android4acc1ae8_userpool_4acc1ae8",
+    "resourceNameTruncated": "newaws8b842ebf",
+    "userPoolName": "newawsauth18b842ebf_userpool_8b842ebf",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "androi4acc1ae8_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "newaws8b842ebf_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "4acc1ae8",
-    "resourceName": "android4acc1ae8",
+    "sharedId": "8b842ebf",
+    "resourceName": "newawsauth18b842ebf",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -50,13 +50,14 @@
     "usernameAttributes": [
         "phone_number"
     ],
-    "hostedUIDomainName": "android4acc1ae8-4acc1ae8",
+    "hostedUIDomainName": "newauth18b842ebf-8b842ebf",
     "authProvidersUserPool": [
         "Google"
     ],
     "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://localhost/\"],\"LogoutURLs\":[\"https://localhost/\"]}",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost/\"],\"LogoutURLs\":[\"http://localhost/\"]}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
+    "usernameCaseSensitive": false,
     "dependsOn": []
 }

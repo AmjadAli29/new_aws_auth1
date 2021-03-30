@@ -2,6 +2,8 @@ package com.example.new_aws_auth1;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
@@ -23,6 +25,7 @@ import io.flutter.plugin.common.MethodChannel;
 
 public class MainActivity extends FlutterActivity {
     private static final String CHANNEL = "flutter.native/helper";
+//    static final String userId = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,22 +55,27 @@ public class MainActivity extends FlutterActivity {
 
     private String sendOpenIDToAWS(String idToken)
     {
+//        final String[] userID = new String[1];
         // Add this line, to include the Auth plugin.
         AWSMobileClient mobileClient =
                 (AWSMobileClient) Amplify.Auth.getPlugin("awsCognitoAuthPlugin").getEscapeHatch();
         // Log.d("myTag", "This is my message");
         assert mobileClient != null;
+
+        final String[] user = {""};
         mobileClient.federatedSignIn("securetoken.google.com/new-aws-auth1",  idToken,
                 new  Callback<UserStateDetails>() {
                     @Override
                     public void onResult(UserStateDetails userStateDetails) {
                         // return 'succesfull';
-                        // Log.d("myTag", "This is my message3");
+                        user[0] = userStateDetails.toString();
+                         Log.d("myTag", ""+user[0]);
 
 
                         //("AmplifyQuickstar", "sign in success");
 
-                        // userID = mobileClient.identityId
+//                        String userID = mobileClient.getIdentityId();
+//                         Log.i("myTag", userID);
                         // gotoProfileActivity(phoneNumber)
                     }
 
@@ -81,7 +89,9 @@ public class MainActivity extends FlutterActivity {
                     }
                 }
         );
-        return idToken;
+       String userId= mobileClient.getIdentityId();
+        Log.i("myTag", userId);
+       return userId;
     }
 
 
